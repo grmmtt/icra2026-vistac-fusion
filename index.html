@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symmetry-Aware Visuo-Tactile Fusion via Bilateral Force Priors</title>
+  <meta name="description" content="Project page for 'Symmetry-Aware Fusion of Vision and Tactile Sensing via Bilateral Force Priors for Robotic Manipulation', accepted at ICRA 2026.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Symmetry-Aware Visuo-Tactile Fusion via Bilateral Force Priors">
+  <meta property="og:description" content="Cross-Modal Transformer with physics-informed symmetry regularization for visuo-tactile fusion. 96.59% insertion success on TacSL. ICRA 2026.">
+  <meta property="og:image" content="https://grmmtt.github.io/icra2026-vistac-fusion/assets/img/figure_1.png">
+  <meta property="og:url" content="https://grmmtt.github.io/icra2026-vistac-fusion/">
+  <meta property="og:type" content="website">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Symmetry-Aware Visuo-Tactile Fusion via Bilateral Force Priors">
+  <meta name="twitter:description" content="Cross-Modal Transformer with physics-informed symmetry regularization for visuo-tactile fusion. 96.59% insertion success on TacSL. ICRA 2026.">
+  <meta name="twitter:image" content="https://grmmtt.github.io/icra2026-vistac-fusion/assets/img/figure_1.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ────────────── Hero ────────────── -->
+  <header class="hero">
+    <div class="container">
+      <a href="https://2026.ieee-icra.org/" class="conference-badge" target="_blank" rel="noopener">
+        <img src="assets/img/ICRA-VIE26-logo.webp" alt="ICRA 2026 Vienna">
+      </a>
+      <h1>Symmetry-Aware Fusion of Vision and Tactile Sensing via Bilateral Force Priors for Robotic Manipulation</h1>
+      <p class="authors">
+        <a href="https://www.linkedin.com/in/wonjulee19/" target="_blank" rel="noopener" class="author-link">Wonju Lee</a>,
+        <a href="https://www.linkedin.com/in/matteogrimaldi11/" target="_blank" rel="noopener" class="author-link">Matteo Grimaldi</a>,
+        <a href="https://www.linkedin.com/in/taoyumit/" target="_blank" rel="noopener" class="author-link">Tao Yu</a>
+      </p>
+      <p class="affiliation">
+        <img src="assets/img/adi-logo.svg" alt="Analog Devices">
+        DexAI, Analog Devices
+      </p>
+      <div class="links">
+        <a href="https://arxiv.org/abs/2602.13689" class="btn btn--primary">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          arXiv
+        </a>
+<a href="#video" class="btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          Video
+        </a>
+        <span class="btn btn--disabled">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          Code (coming soon)
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ────────────── Overview ────────────── -->
+  <section id="overview">
+    <div class="container">
+      <h2 class="section-title">Overview</h2>
+
+      <div class="tldr">
+        <strong>TL;DR</strong> &mdash; We propose a Cross-Modal Transformer
+        with physics-informed symmetry regularization for visuo-tactile fusion.
+        It achieves <strong>96.59%</strong> insertion success on the TacSL
+        benchmark, nearly matching privileged force sensing while using only
+        realistic tactile inputs.
+      </div>
+
+      <div class="text-block">
+        <p>
+          Contact-rich tasks like plug insertion break down when you rely on
+          vision alone &mdash; close-range alignment demands force-level
+          precision that cameras simply cannot provide. Tactile sensing fills
+          that gap, but <strong>na&iuml;ve fusion of vision and touch often
+          hurts more than it helps</strong>. The core issue is that raw
+          concatenation dilutes the already-weak tactile signal.
+        </p>
+        <p>
+          We address this with two ideas: a <strong>Cross-Modal Transformer
+          (CMT)</strong> that learns structured alignment between visual and
+          tactile features through self- and cross-attention, and a
+          <strong>bilateral symmetry loss</strong> grounded in Newton&rsquo;s
+          Third Law &mdash; if both fingers grasp the same object, their
+          tactile embeddings should mirror each other. This simple
+          physics-informed constraint stabilizes training without any extra
+          labels.
+        </p>
+      </div>
+
+      <figure class="figure">
+        <img src="assets/img/figure_1.png"
+             alt="Comparison of vision-only, tactile-only, and visuo-tactile fusion for plug insertion"
+             loading="lazy">
+        <figcaption>
+          Vision gives you the global picture but loses precision at contact.
+          Tactile sensing captures rich contact forces but lacks spatial context.
+          Our fusion combines both for balanced, robust insertion.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ────────────── Method ────────────── -->
+  <section id="method">
+    <div class="container">
+      <h2 class="section-title">Method</h2>
+
+      <h3 class="section-subtitle">Contributions</h3>
+      <ol class="contributions-list">
+        <li>
+          <strong>Cross-Modal Transformer (CMT)</strong> &mdash;
+          Structured visuo-tactile fusion via hierarchical self- and
+          cross-attention, replacing na&iuml;ve concatenation with learned
+          inter-modal alignment.
+        </li>
+        <li>
+          <strong>Physics-informed symmetry regularization</strong> &mdash;
+          Bilateral force-balance constraint inspired by Newton&rsquo;s Third
+          Law. Vertically flipping the right tactile image and enforcing
+          embedding consistency via MSE stabilizes representations with zero
+          extra annotation cost.
+        </li>
+        <li>
+          <strong>State-of-the-art insertion performance</strong> &mdash;
+          96.59% success on TacSL, surpassing all fusion baselines and nearly
+          matching privileged wrist + contact-force sensing (96.09%).
+        </li>
+      </ol>
+
+      <figure class="figure">
+        <img src="assets/img/figure_2.png"
+             alt="Architecture: Cross-Modal Transformer fusion vs naive and gated baselines"
+             loading="lazy">
+        <figcaption>
+          Overall architecture. The policy takes robot states, a wrist image,
+          and left/right tactile inputs. The fusion module is instantiated as
+          (a) na&iuml;ve early fusion, (b) linear gated fusion, or (c) our
+          Cross-Modal Transformer with structured self- and cross-attention.
+        </figcaption>
+      </figure>
+
+      <figure class="figure figure--compact">
+        <img src="assets/img/figure_3.png"
+             alt="Bilateral symmetry regularization diagram"
+             loading="lazy">
+        <figcaption>
+          Symmetry regularization: the right tactile image is vertically
+          flipped before encoding, and an MSE loss between left and
+          flipped-right embeddings enforces bilateral force consistency.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ────────────── Results ────────────── -->
+  <section id="results">
+    <div class="container">
+      <h2 class="section-title">Results</h2>
+
+      <div class="results-grid">
+        <div class="stat-card">
+          <div class="value">96.59<span class="unit">%</span></div>
+          <div class="desc">Insertion success rate<br>CMT + symmetry reg.</div>
+        </div>
+        <div class="stat-card">
+          <div class="value">153 <span class="unit">fps</span></div>
+          <div class="desc">Inference speed<br>real-time capable</div>
+        </div>
+        <div class="stat-card">
+          <div class="value">100<span class="unit">%</span></div>
+          <div class="desc">Screw-task success<br>tactile only</div>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Privileged</th>
+              <th>Reduced</th>
+              <th>Contact Forces</th>
+              <th>Vision</th>
+              <th>Tactile</th>
+              <th>Succ. Rate (%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Privileged</td>
+              <td class="check">&check;</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>96.74</td>
+            </tr>
+            <tr>
+              <td>&plus; Contact Forces</td>
+              <td class="check">&check;</td>
+              <td></td>
+              <td class="check">&check;</td>
+              <td></td>
+              <td></td>
+              <td>98.96 (+2.22)</td>
+            </tr>
+            <tr>
+              <td>Tactile</td>
+              <td></td>
+              <td class="check">&check;</td>
+              <td></td>
+              <td></td>
+              <td class="check">&check;</td>
+              <td>91.41</td>
+            </tr>
+            <tr>
+              <td>Vision</td>
+              <td></td>
+              <td class="check">&check;</td>
+              <td></td>
+              <td class="check">&check;</td>
+              <td></td>
+              <td>93.23</td>
+            </tr>
+            <tr>
+              <td>Vision + Contact Forces</td>
+              <td></td>
+              <td class="check">&check;</td>
+              <td class="check">&check;</td>
+              <td class="check">&check;</td>
+              <td></td>
+              <td>96.09 (+2.86)</td>
+            </tr>
+            <tr>
+              <td>Fusion &ndash; Naive</td>
+              <td></td>
+              <td class="check">&check;</td>
+              <td></td>
+              <td class="check">&check;</td>
+              <td class="check">&check;</td>
+              <td>92.97</td>
+            </tr>
+            <tr>
+              <td>Fusion &ndash; Gated</td>
+              <td></td>
+              <td class="check">&check;</td>
+              <td></td>
+              <td class="check">&check;</td>
+              <td class="check">&check;</td>
+              <td>94.53 (+1.56)</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>Fusion &ndash; CMT (ours)</strong></td>
+              <td></td>
+              <td class="check">&check;</td>
+              <td></td>
+              <td class="check">&check;</td>
+              <td class="check">&check;</td>
+              <td><strong>96.22 (+3.25)</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="text-block">
+        <p>
+          On the TacSL benchmark, CMT with symmetry regularization outperforms
+          na&iuml;ve early fusion (92.97%) and linear gated fusion (94.53%)
+          by a clear margin, and nearly matches the
+          <strong>privileged wrist + contact-force</strong> setting (96.09%)
+          &mdash; despite using only realistic tactile images as input.
+        </p>
+        <p>
+          Adding tactile sensing to vision consistently improves success rates
+          by <strong>+2.2% to +2.8%</strong> across all fusion strategies,
+          confirming that touch provides genuinely complementary information
+          for precise alignment. Tactile-only policies already reach 91.41%,
+          and on the screw insertion task tactile alone hits a perfect 100%.
+        </p>
+      </div>
+
+      <figure class="figure">
+        <img src="assets/img/figure_4.png"
+             alt="Qualitative comparison: tactile force fields during insertion"
+             loading="lazy">
+        <figcaption>
+          Tactile force fields during plug insertion. Na&iuml;ve fusion
+          (top) produces unbalanced, noisy contacts. Our method (bottom)
+          yields symmetric, consistent force distributions across all
+          insertion phases.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ────────────── Video ────────────── -->
+  <section id="video">
+    <div class="container">
+      <h2 class="section-title">Video</h2>
+      <div class="video-wrapper">
+        <video controls playsinline preload="metadata">
+          <source src="assets/video/ICRA26_1190_VI_fi.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────────── BibTeX ────────────── -->
+  <section id="citation">
+    <div class="container">
+      <h2 class="section-title">Citation</h2>
+      <div class="bibtex-wrapper">
+        <pre class="bibtex-block" id="bibtex">@inproceedings{lee2026symmetry,
+  title     = {Symmetry-Aware Fusion of Vision and Tactile Sensing
+               via Bilateral Force Priors for Robotic Manipulation},
+  author    = {Lee, Wonju and Grimaldi, Matteo and Yu, Tao},
+  booktitle = {IEEE International Conference on Robotics and
+               Automation (ICRA)},
+  year      = {2026}
+}</pre>
+        <button class="copy-btn" onclick="copyBibtex()">Copy</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────────── Footer ────────────── -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 DexAI, Analog Devices &middot; <a href="https://2026.ieee-icra.org/" target="_blank" rel="noopener">ICRA 2026</a></p>
+      <p>Contact: {name.lastname}@analog.com</p>
+    </div>
+  </footer>
+
+  <script>
+    function copyBibtex() {
+      const text = document.getElementById('bibtex').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
