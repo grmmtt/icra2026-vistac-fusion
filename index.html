@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
 </head>
 <body>
 
@@ -183,7 +183,6 @@
               <th>Method</th>
               <th>Privileged</th>
               <th>Reduced</th>
-              <th>Contact Forces</th>
               <th>Vision</th>
               <th>Tactile</th>
               <th>Succ. Rate (%)</th>
@@ -196,14 +195,12 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
               <td>96.74</td>
             </tr>
             <tr>
               <td>&plus; Contact Forces</td>
               <td class="check">&check;</td>
               <td></td>
-              <td class="check">&check;</td>
               <td></td>
               <td></td>
               <td>98.96 (+2.22)</td>
@@ -213,7 +210,6 @@
               <td></td>
               <td class="check">&check;</td>
               <td></td>
-              <td></td>
               <td class="check">&check;</td>
               <td>91.41</td>
             </tr>
@@ -221,7 +217,6 @@
               <td>Vision</td>
               <td></td>
               <td class="check">&check;</td>
-              <td></td>
               <td class="check">&check;</td>
               <td></td>
               <td>93.23</td>
@@ -231,36 +226,48 @@
               <td></td>
               <td class="check">&check;</td>
               <td class="check">&check;</td>
-              <td class="check">&check;</td>
               <td></td>
               <td>96.09 (+2.86)</td>
             </tr>
-            <tr>
+            <tr class="row-fusion">
               <td>Fusion &ndash; Naive</td>
               <td></td>
               <td class="check">&check;</td>
-              <td></td>
               <td class="check">&check;</td>
               <td class="check">&check;</td>
               <td>92.97</td>
             </tr>
-            <tr>
+            <tr class="row-fusion">
               <td>Fusion &ndash; Gated</td>
               <td></td>
               <td class="check">&check;</td>
-              <td></td>
               <td class="check">&check;</td>
               <td class="check">&check;</td>
               <td>94.53 (+1.56)</td>
             </tr>
-            <tr class="highlight-row">
+            <tr class="row-fusion row-ours">
               <td><strong>Fusion &ndash; CMT (ours)</strong></td>
               <td></td>
               <td class="check">&check;</td>
-              <td></td>
               <td class="check">&check;</td>
               <td class="check">&check;</td>
               <td><strong>96.22 (+3.25)</strong></td>
+            </tr>
+            <tr class="row-reg">
+              <td>Fusion &ndash; Gated + Symmetry Reg.</td>
+              <td></td>
+              <td class="check">&check;</td>
+              <td class="check">&check;</td>
+              <td class="check">&check;</td>
+              <td>95.05 (+2.08)</td>
+            </tr>
+            <tr class="row-reg row-ours">
+              <td><strong>Fusion &ndash; CMT + Symmetry Reg. (ours)</strong></td>
+              <td></td>
+              <td class="check">&check;</td>
+              <td class="check">&check;</td>
+              <td class="check">&check;</td>
+              <td><strong>96.59 (+3.62)</strong></td>
             </tr>
           </tbody>
         </table>

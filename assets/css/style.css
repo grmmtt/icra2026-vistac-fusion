@@ -345,7 +345,7 @@ section + section {
   background: var(--clr-accent);
   color: #fff;
   font-weight: 600;
-  padding: 12px 14px;
+  padding: 10px 10px;
   text-align: center;
   white-space: nowrap;
 }
@@ -360,7 +360,7 @@ section + section {
 }
 
 .results-table td {
-  padding: 10px 14px;
+  padding: 9px 10px;
   text-align: center;
   border-bottom: 1px solid var(--clr-border);
   color: var(--clr-secondary);
@@ -370,7 +370,6 @@ section + section {
   text-align: left;
   color: var(--clr-text);
   font-weight: 500;
-  white-space: nowrap;
 }
 
 .results-table td.check {
@@ -384,21 +383,20 @@ section + section {
   white-space: nowrap;
 }
 
-.results-table tbody tr:hover {
-  background: var(--clr-surface);
+.results-table .row-fusion {
+  background: #edf3f8;
 }
 
-.results-table .highlight-row {
-  background: var(--clr-accent-light);
+.results-table .row-reg {
+  background: #d8e5f0;
 }
 
-.results-table .highlight-row td {
+.results-table .row-ours td {
   color: var(--clr-text);
-  font-weight: 600;
 }
 
-.results-table .highlight-row:hover {
-  background: var(--clr-accent-light);
+.results-table tbody tr:hover {
+  background: #c2d6e6;
 }
 
 /* ── Video ───────────────────────────────────────────────── */
